@@ -192,22 +192,15 @@ def avaliar_risco_suicida(texto):
 
 # ================== SIDEBAR ==================
 with st.sidebar:
-    st.header("🛠️ Menu")
+    st.header("Menu")
     modo = st.radio(
         "Escolha o modo:",
-        options=["🔍 Modo Análise", "💬 Modo Chat", "📊 Desempenho dos Modelos"],
+        options=["Modo Análise", "Modo Chat", "Desempenho dos Modelos"],
         horizontal=False
     )
 
-    st.divider()
-    st.header("ℹ️ Sobre")
-    st.write("Analisa textos em português brasileiro detectando:")
-    st.write("• 6 categorias de discurso de ódio (ToLD-BR)")
-    st.write("• Linguagem ofensiva (palavrões e xingamentos)")
-    st.caption("Pré-processamento: spaCy • Modelos: scikit-learn")
-
 # ================== MODO ANÁLISE ==================
-if modo == "🔍 Modo Análise":
+if modo == "Modo Análise":
     st.title("🛡️ Detecção de Discurso de Ódio + Linguagem Ofensiva")
     st.markdown("**ToLD-BR + Detector de Palavrões e Xingamentos**")
 
@@ -272,7 +265,7 @@ if modo == "🔍 Modo Análise":
                 st.success("✅ Análise concluída!")
                 st.dataframe(pd.DataFrame(linhas), use_container_width=True, hide_index=True)
 
-                st.markdown("### 📊 Resumo da Análise")
+                st.markdown("### Resumo da Análise")
                 c1, c2, c3, c4 = st.columns(4)
                 with c1: st.metric("Categorias analisadas", len(linhas))
                 with c2: st.metric("Categorias tóxicas (≥2 modelos)", toxicas_majoritarias,
@@ -290,8 +283,8 @@ if modo == "🔍 Modo Análise":
                 st.info("**Legenda**\n• 🔴 Tóxico = indícios de discurso de ódio\n• 🟢 Não tóxico = sem indícios claros")
 
 # ================== MODO CHAT ==================
-elif modo == "💬 Modo Chat":
-    st.title("💬 Chat com Proteção contra Discurso de Ódio")
+elif modo == "Modo Chat":
+    st.title("Chat com Proteção contra Discurso de Ódio")
     st.markdown("Escreva o que quiser. Se eu detectar ódio ou ofensa forte, vou te perguntar antes de continuar.")
 
     if "chat_messages" not in st.session_state:
@@ -309,7 +302,7 @@ elif modo == "💬 Modo Chat":
     if st.session_state.pending is not None:
         pend = st.session_state.pending
         with st.chat_message("assistant"):
-            st.warning("⚠️ **Atenção**: Detectei possível discurso de ódio ou linguagem ofensiva forte.")
+            st.warning("**Atenção**: Detectei possível discurso de ódio ou linguagem ofensiva forte.")
             st.caption(f"Motivo: {pend['motivo']}")
             st.write("Você realmente deseja enviar esta mensagem?")
             c1, c2 = st.columns(2)
@@ -378,7 +371,7 @@ elif modo == "💬 Modo Chat":
 
 # ================== DESEMPENHO DOS MODELOS ==================
 else:
-    st.title("📊 Desempenho dos Modelos")
+    st.title("Desempenho dos Modelos")
     if not metricas:
         st.info("Métricas ainda não geradas. Rode `python train_models.py` para criar `models/metrics.json`.")
     else:
@@ -403,4 +396,4 @@ else:
 
 # Rodapé
 st.divider()
-st.caption("🛠️ Desenvolvido com spaCy, scikit-learn e Streamlit | Dataset ToLD-BR + Detector de Ofensa")
+st.caption("Desenvolvido com spaCy, scikit-learn e Streamlit | Dataset ToLD-BR + Detector de Ofensa")
