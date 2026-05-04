@@ -5,3 +5,5 @@ spacy==3.7.2
 joblib
 streamlit
 https://github.com/explosion/spacy-models/releases/download/pt_core_news_sm-3.7.0/pt_core_news_sm-3.7.0-py3-none-any.whl
+pymongo==4.17.0
+python-dotenv==1.2.2

@@ -17,7 +17,6 @@ from sklearn.metrics import (
 
 # ================== CONFIGURAÇÃO (caminhos automáticos) ==================
 BASE_DIR = Path(__file__).resolve().parent
-DATA_PATH = BASE_DIR / "Bases_de_dados" / "ToLD-BR.csv"
 MODELS_DIR = BASE_DIR / "models"
 METRICS_PATH = MODELS_DIR / "metrics.json"
 MODELS_DIR.mkdir(exist_ok=True)
@@ -45,11 +44,15 @@ def preprocessar_texto(texto):
               and len(token.lemma_) > 2]
     return " ".join(tokens)
 
-# ================== CARREGAR DADOS ==================
-print(f"Carregando o dataset: {DATA_PATH}")
-if not DATA_PATH.exists():
-    raise FileNotFoundError(f"Arquivo não encontrado: {DATA_PATH}")
-df = pd.read_csv(DATA_PATH)
+# ================== CARREGAR DADOS (MongoDB) ==================
+from db_manager import HateSpeechDB
+
+print("Conectando ao MongoDB e carregando dados...")
+db = HateSpeechDB()
+df_train = db.get_split("train", source="ToLD-BR")
+df_test  = db.get_split("test",  source="ToLD-BR")
+df = pd.concat([df_train, df_test], ignore_index=True)
+print(f"Dataset carregado do MongoDB com {len(df)} exemplos.")
 
 # Converter rótulos para binário (0 = não tóxico, 1 = tóxico)
 for cat in categorias:
