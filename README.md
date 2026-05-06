@@ -1,4 +1,5 @@
-# PLN — Detecção de Discurso de Ódio (PT-BR)
+# Detecção de Discurso de Ódio (PT-BR)
+[Disponivel para visualização - StreamLit](https://plndiscursodeodio.streamlit.app/)
 
 Trabalho da disciplina de Processamento de Linguagem Natural (5º semestre). Classificação multi-rótulo de discurso de ódio em português usando modelos clássicos (Naive Bayes, Regressão Logística, SVM Linear) sobre o dataset ToLD-BR, com app Streamlit para inferência interativa e armazenamento dos dados em **MongoDB Atlas**.
 
