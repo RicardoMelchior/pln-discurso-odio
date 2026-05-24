@@ -1,0 +1,11 @@
+# Dependencias adicionais para reproduzir o treino da MLP em Keras
+# (nn_keras.py - Trabalho P4). NAO sao necessarias para rodar o app
+# Streamlit em producao.
+#
+# Uso:
+#   pip install -r requirements.txt
+#   pip install -r requirements-nn.txt
+#   python nn_keras.py
+
+tensorflow>=2.15,<2.22
+matplotlib

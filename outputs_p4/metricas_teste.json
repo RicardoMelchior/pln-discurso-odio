@@ -1,0 +1,51 @@
+{
+  "input_dim": 5000,
+  "n_train": 12600,
+  "n_val": 4200,
+  "n_test": 4200,
+  "class_weight": {
+    "0": 0.8939974457215837,
+    "1": 1.1345218800648298
+  },
+  "test_loss": 0.5507848262786865,
+  "test_accuracy": 0.7269047498703003,
+  "confusion_matrix": [
+    [
+      1754,
+      595
+    ],
+    [
+      552,
+      1299
+    ]
+  ],
+  "classification_report": {
+    "nao_toxico": {
+      "precision": 0.7606244579358196,
+      "recall": 0.746700723712218,
+      "f1-score": 0.7535982814178303,
+      "support": 2349.0
+    },
+    "toxico": {
+      "precision": 0.6858500527983105,
+      "recall": 0.7017828200972447,
+      "f1-score": 0.6937249666221629,
+      "support": 1851.0
+    },
+    "accuracy": 0.7269047619047619,
+    "macro avg": {
+      "precision": 0.723237255367065,
+      "recall": 0.7242417719047314,
+      "f1-score": 0.7236616240199966,
+      "support": 4200.0
+    },
+    "weighted avg": {
+      "precision": 0.7276703093859316,
+      "recall": 0.7269047619047619,
+      "f1-score": 0.7272112562543112,
+      "support": 4200.0
+    }
+  },
+  "epochs_run": 5,
+  "early_stop_epoch": 4
+}

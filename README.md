@@ -89,6 +89,19 @@ streamlit run app.py
 
 `pandas`, `numpy`, `scikit-learn`, `spacy`, `joblib`, `streamlit`, `pymongo`, `python-dotenv`.
 
+## Trabalho P4 — Rede Neural em Keras
+
+A pasta inclui um exercício adicional de Redes Neurais Artificiais em TensorFlow/Keras
+(MLP sobre TF-IDF para classificação binária tóxico vs. não-tóxico no ToLD-BR).
+
+```bash
+pip install -r requirements-nn.txt
+python nn_keras.py
+```
+
+Artefatos gerados em `outputs_p4/` (gráficos de loss/accuracy, matriz de confusão,
+histórico em JSON, summary do modelo). Relatório completo: [`RELATORIO_P4.md`](RELATORIO_P4.md).
+
 ## Datasets
 
 - **HateBR** / **HateBRXplain** — Vargas et al.
